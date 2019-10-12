@@ -1,8 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 
 namespace ManagerAPI.Controllers
 {
@@ -10,7 +7,10 @@ namespace ManagerAPI.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
+        /// <summary>
+        /// GET api/values
+        /// </summary>
+        /// <returns>Get array</returns>
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
@@ -30,7 +30,23 @@ namespace ManagerAPI.Controllers
         {
         }
 
-        // PUT api/values/5
+
+        /// <summary>
+        /// PUT api/values/5
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST
+        ///     {
+        ///        "String": "Some value"
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="id">Идентификатор</param>
+        /// <param name="value">значение</param>
+        /// <response code="201">Что-то про код 201</response>  
+        /// <response code="400">Если-что-то произошло</response>  
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
