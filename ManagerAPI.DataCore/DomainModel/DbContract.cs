@@ -5,10 +5,8 @@ namespace ManagerAPI.DataCore.DomainModel
     /// <summary>
     /// Описывает входные/выходные данные для метода
     /// </summary>
-    public class DbContract
+    public class DbContract : BaseEntity
     {
-        public Guid Id { get; set; }
-
         public string Name { get; set; }
 
         /// <summary>
@@ -40,11 +38,13 @@ namespace ManagerAPI.DataCore.DomainModel
         /// <summary>
         /// Входные данные метода
         /// </summary>
+        public Guid? RequestId { get; set; }
         public DbObject Request { get; set; }
 
         /// <summary>
         /// То, что метод отдаст
         /// </summary>
+        public Guid? ResponseId { get; set; }
         public DbObject Response { get; set; }
     }
 }

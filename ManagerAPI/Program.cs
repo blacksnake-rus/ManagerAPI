@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 
 namespace ManagerAPI
 {
@@ -12,6 +13,12 @@ namespace ManagerAPI
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hosting, config) => 
+                {
+                    var environmentName = hosting.HostingEnvironment.EnvironmentName;
+                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                          .AddJsonFile($"appsettings.{environmentName}.json", optional: true, reloadOnChange: true);
+                })
                 .UseStartup<Startup>();
     }
 }

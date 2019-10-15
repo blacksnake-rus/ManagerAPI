@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ManagerAPI.DataCore.DomainModel
 {
     /// <summary>
     /// Описывает свойство объекта
     /// </summary>
-    public class DbObjectProperty
+    public class DbObjectProperty : BaseEntity
     {
-        public Guid Id { get; set; }
-
         public string Name { get; set; }
 
         /// <summary>
