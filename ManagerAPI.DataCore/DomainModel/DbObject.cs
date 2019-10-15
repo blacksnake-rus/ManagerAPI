@@ -20,5 +20,10 @@ namespace ManagerAPI.DataCore.DomainModel
         /// Свойства объекта, у простого(string, ...) эта колекция будет пуста
         /// </summary>
         public ICollection<DbObjectProperty> ObjectProperties { get; set; }
+
+        public DbObject()
+        {
+            ObjectProperties = new List<DbObjectProperty>();
+        }
     }
 }

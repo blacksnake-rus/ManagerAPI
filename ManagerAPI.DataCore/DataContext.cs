@@ -29,15 +29,16 @@ namespace ManagerAPI.DataCore
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Entity<DbContract>()
-            //    .Property(x => x.Name).IsRequired();
-            //modelBuilder.Entity<DbContract>()
-            //    .Property(x => x.StatusId).IsRequired();
-
             modelBuilder.Entity<DbObjectProperty>()
                 .HasOne(x => x.Status)
                 .WithMany()
                 .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<DbObject>()
+                .HasMany(x => x.ObjectProperties)
+                .WithOne(x => x.ObjectOwner)
+                .OnDelete(DeleteBehavior.Restrict);
+            
         }
     }
 }

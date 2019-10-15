@@ -38,13 +38,13 @@ namespace ManagerAPI.DataCore.DomainModel
         /// <summary>
         /// Входные данные метода
         /// </summary>
-        public Guid? RequestId { get; set; }
-        public DbObject Request { get; set; }
+        public Guid? RequestObjectId { get; set; }
+        public DbObject RequestObject { get; set; }
 
         /// <summary>
         /// То, что метод отдаст
         /// </summary>
-        public Guid? ResponseId { get; set; }
-        public DbObject Response { get; set; }
+        public Guid? ResponseObjectId { get; set; }
+        public DbObject ResponseObject { get; set; }
     }
 }

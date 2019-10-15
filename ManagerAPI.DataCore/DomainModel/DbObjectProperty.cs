@@ -10,10 +10,16 @@ namespace ManagerAPI.DataCore.DomainModel
         public string Name { get; set; }
 
         /// <summary>
-        /// Тип поля
+        /// Тип свойства, как простой, так и класс
         /// </summary>
         public Guid DataTypeId { get; set; }
         public DbObject DataType { get; set; }
+
+        /// <summary>
+        /// Объект, к которому принадлежит свойство
+        /// </summary>
+        public Guid ObjectOwnerId { get; set; }
+        public DbObject ObjectOwner { get; set; }
 
         /// <summary>
         /// Является ли свойство массивом элементов (Type)
