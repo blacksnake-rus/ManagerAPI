@@ -12,6 +12,6 @@ namespace ManagerAPI.DataCore
         /// <summary>
         /// Признак удаления
         /// </summary>
-        public bool IsDeleted { get; set; }
+        public DateTime? DateOff { get; set; }
     }
 }

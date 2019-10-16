@@ -1,5 +1,7 @@
-﻿using ManagerAPI.DataCore.DomainModel;
+﻿using ManagerAPI.DataCore.Configuration;
+using ManagerAPI.DataCore.DomainModel;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace ManagerAPI.DataCore
 {
@@ -15,6 +17,7 @@ namespace ManagerAPI.DataCore
         public DataContext(string connectionString) 
         {
             _connectionString = connectionString;
+
             Database.EnsureCreated();
         }
 
@@ -29,16 +32,7 @@ namespace ManagerAPI.DataCore
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<DbObjectProperty>()
-                .HasOne(x => x.Status)
-                .WithMany()
-                .OnDelete(DeleteBehavior.ClientSetNull);
-
-            modelBuilder.Entity<DbObject>()
-                .HasMany(x => x.ObjectProperties)
-                .WithOne(x => x.ObjectOwner)
-                .OnDelete(DeleteBehavior.Restrict);
-            
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }

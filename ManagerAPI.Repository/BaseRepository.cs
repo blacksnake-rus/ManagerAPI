@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ManagerAPI.Repository
@@ -17,7 +16,7 @@ namespace ManagerAPI.Repository
         }
 
         protected async Task<TEntity> GetById(Guid id)
-            => await _context.Set<TEntity>().FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
+            => await _context.Set<TEntity>().FirstOrDefaultAsync(x => x.Id == id && !x.DateOff.HasValue);
 
         protected async Task<IEnumerable<TEntity>> GetAllAsync()
             => await _context.Set<TEntity>().ToListAsync();
