@@ -4,6 +4,7 @@ using ManagerAPI.Repository.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
@@ -40,7 +41,8 @@ namespace ManagerAPI
             });
 
             var connectionString = Configuration.GetConnectionString("ManagerAPIDbConnectionW");
-            services.AddTransient((x) => new DataContext(connectionString));
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString), 
+                ServiceLifetime.Transient, ServiceLifetime.Transient);
 
             services.AddTransient<IGenericTypeRepository, GenericTypeRepository>();
 
