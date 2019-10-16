@@ -1,6 +1,8 @@
-﻿namespace ManagerAPI.Repository.Interfaces
+﻿using ManagerAPI.DataCore.DomainModel;
+
+namespace ManagerAPI.Repository.Interfaces
 {
-    public interface IGenericTypeRepository
+    public interface IGenericTypeRepository : IBaseRepository<DbGenericType>
     {
     }
 }

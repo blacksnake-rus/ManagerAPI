@@ -2,9 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
-namespace ManagerAPI.Repository
+namespace ManagerAPI.Repository.Implementation
 {
     public abstract class BaseRepository<TEntity> where TEntity : BaseEntity
     {
@@ -15,10 +16,10 @@ namespace ManagerAPI.Repository
             _context = context;
         }
 
-        protected async Task<TEntity> GetById(Guid id)
+        public async Task<TEntity> GetById(Guid id)
             => await _context.Set<TEntity>().FirstOrDefaultAsync(x => x.Id == id && !x.DateOff.HasValue);
 
-        protected async Task<IEnumerable<TEntity>> GetAllAsync()
-            => await _context.Set<TEntity>().ToListAsync();
+        public async Task<IEnumerable<TEntity>> GetAllAsync()
+            => await _context.Set<TEntity>().Where(x => !x.DateOff.HasValue).ToListAsync();
     }
 }
