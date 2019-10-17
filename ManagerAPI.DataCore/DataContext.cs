@@ -1,5 +1,4 @@
-﻿using ManagerAPI.DataCore.Configuration;
-using ManagerAPI.DataCore.DomainModel;
+﻿using ManagerAPI.DataCore.DomainModel;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

@@ -8,9 +8,4 @@
     <ProjectReference Include="..\ManagerAPI.Repository\ManagerAPI.Repository.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Implementation\" />
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
 </Project>
