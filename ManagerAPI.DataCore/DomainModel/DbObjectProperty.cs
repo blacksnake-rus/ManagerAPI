@@ -38,7 +38,7 @@ namespace ManagerAPI.DataCore.DomainModel
         public DbGenericType Status { get; set; }
 
         /// <summary>
-        /// Описание контракта
+        /// Описание свойства
         /// </summary>
         public string Description { get; set; }
 

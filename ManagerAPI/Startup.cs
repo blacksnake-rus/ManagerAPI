@@ -41,9 +41,9 @@ namespace ManagerAPI
             });
 
             var connectionString = Configuration.GetConnectionString("ManagerAPIDbConnectionW");
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString), 
+            services.AddDbContext<DataContext>(options => options.UseNpgsql(connectionString), 
                 ServiceLifetime.Transient, ServiceLifetime.Transient);
-
+     
             services.AddTransient<IGenericTypeRepository, GenericTypeRepository>();
 
             
