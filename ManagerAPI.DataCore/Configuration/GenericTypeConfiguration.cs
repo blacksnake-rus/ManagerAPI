@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ManagerAPI.DataCore.Configuration
 {
-    public class GenericTypeConfiguration : BaseConfiguration<DbGenericType>, IEntityTypeConfiguration<DbGenericType>
+    public class GenericTypeConfiguration : IEntityTypeConfiguration<DbGenericType>
     {
-        public new void Configure(EntityTypeBuilder<DbGenericType> builder)
+        public void Configure(EntityTypeBuilder<DbGenericType> builder)
         {
-            base.Configure(builder);
+            BaseConfiguration.Configure(builder);
 
             builder.ToTable("generic_type");
 

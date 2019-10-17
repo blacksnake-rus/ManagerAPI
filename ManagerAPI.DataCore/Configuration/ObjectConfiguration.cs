@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ManagerAPI.DataCore.Configuration
 {
-    public class ObjectConfiguration : BaseConfiguration<DbObject>, IEntityTypeConfiguration<DbObject>
+    public class ObjectConfiguration : IEntityTypeConfiguration<DbObject>
     {
-        public new void Configure(EntityTypeBuilder<DbObject> builder)
+        public void Configure(EntityTypeBuilder<DbObject> builder)
         {
-            base.Configure(builder);
+            BaseConfiguration.Configure(builder);
 
             builder.ToTable("object");
 

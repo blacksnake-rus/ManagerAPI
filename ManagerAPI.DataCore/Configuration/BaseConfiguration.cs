@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ManagerAPI.DataCore.Configuration
 {
-    public abstract class BaseConfiguration<TEntity>  where TEntity : BaseEntity
+    public static class BaseConfiguration
     {
-        public void Configure(EntityTypeBuilder<TEntity> builder)
+        public static void Configure<TEntity>(EntityTypeBuilder<TEntity> builder) where TEntity : BaseEntity
         {
             builder.Property(x => x.Id).HasColumnName("id").IsRequired();
             builder.Property(x => x.DateOff).HasColumnName("date_off");

@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ManagerAPI.DataCore.Configuration
 {
-    public class ContractConfiguration : BaseConfiguration<DbContract>, IEntityTypeConfiguration<DbContract>
+    public class ContractConfiguration : IEntityTypeConfiguration<DbContract>
     {
-        public new void Configure(EntityTypeBuilder<DbContract> builder)
+        public void Configure(EntityTypeBuilder<DbContract> builder)
         {
-            base.Configure(builder);
+            BaseConfiguration.Configure(builder);
 
             builder.ToTable("contract");
 
